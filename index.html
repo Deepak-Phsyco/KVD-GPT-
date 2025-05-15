@@ -57,13 +57,17 @@
       background: rgba(255, 255, 255, 0.1);
       backdrop-filter: blur(12px);
       border: 2px solid #ffffff33;
-      border-radius: 20px;
+      border-radius: 25px;
       width: 100%;
       max-width: 850px;
       height: 620px;
       padding: 20px;
       box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
       position: relative;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      overflow: hidden;
     }
 
     .bot-pfp {
@@ -73,16 +77,23 @@
       object-fit: cover;
       border: 3px solid #fff;
       box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
-      margin: -60px auto 20px;
       background: #fff;
-      display: block;
+      margin-top: -50px;
+      z-index: 2;
+    }
+
+    .chat-frame {
+      width: 100%;
+      flex-grow: 1;
+      border-radius: 15px;
+      overflow: hidden;
+      background: linear-gradient(to bottom right, #ffffff1a, #ffffff0d);
     }
 
     iframe {
       width: 100%;
       height: 100%;
       border: none;
-      border-radius: 12px;
     }
 
     footer {
@@ -98,14 +109,13 @@
       }
 
       #chat-container {
-        height: 500px;
-        padding: 10px;
+        height: 520px;
+        padding: 12px;
       }
 
       .bot-pfp {
         width: 60px;
         height: 60px;
-        margin-top: -40px;
       }
     }
   </style>
@@ -113,17 +123,16 @@
 <body>
 
   <header>
-    <h1>KVD GPT</h1>
-    <p>Your Smart AI Schoolmate</p>
+    <h1>KVD-GPT</h1>
+    <p>Your Smart AI Classmate</p>
     <div class="tagline">Your chats are end-to-end encrypted</div>
   </header>
 
   <div id="chat-container">
-    <!-- Bot Profile Picture -->
-    <img src="https://i.imgur.com/8Km9tLL.png" alt="Bot PFP" class="bot-pfp" />
-    
-    <!-- Embedded Chatbot -->
-    <iframe src="https://www.chatbase.co/chatbot-iframe/lczkWPPxgm50VvYMhS9rT" allow="microphone"></iframe>
+    <img src="https://cdn-icons-png.flaticon.com/512/4712/4712107.png" alt="Bot PFP" class="bot-pfp" />
+    <div class="chat-frame">
+      <iframe src="https://www.chatbase.co/chatbot-iframe/lczkWPPxgm50VvYMhS9rT" allow="microphone"></iframe>
+    </div>
   </div>
 
   <footer>
