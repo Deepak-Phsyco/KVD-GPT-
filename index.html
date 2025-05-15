@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>KVD GPT Chatbot</title>
+  <style>
+    /* Reset & base */
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    }
+    body {
+      background: linear-gradient(135deg, #6a11cb 0%, #2575fc 100%);
+      color: #fff;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: flex-start;
+      padding: 40px 20px;
+      gap: 20px;
+    }
+    header {
+      text-align: center;
+      max-width: 600px;
+    }
+    header h1 {
+      font-size: 3rem;
+      background: linear-gradient(90deg, #ff416c, #ff4b2b);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      margin-bottom: 10px;
+    }
+    header p {
+      font-size: 1.2rem;
+      font-weight: 500;
+      color: #f0e6ffcc;
+    }
+
+    main {
+      background: rgba(255, 255, 255, 0.15);
+      border-radius: 15px;
+      padding: 30px;
+      width: 100%;
+      max-width: 720px;
+      box-shadow: 0 8px 30px rgba(255, 255, 255, 0.1);
+      backdrop-filter: blur(15px);
+    }
+
+    /* Container for chatbot embed */
+    #chatbase-embed {
+      height: 600px;
+      width: 100%;
+      border-radius: 12px;
+      overflow: hidden;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.3);
+      border: 2px solid #ff4b2b;
+    }
+
+    footer {
+      margin-top: auto;
+      font-size: 0.9rem;
+      color: #f0e6ffaa;
+    }
+
+    /* Responsive */
+    @media (max-width: 480px) {
+      header h1 {
+        font-size: 2rem;
+      }
+      main {
+        padding: 20px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>KVD GPT</h1>
+    <p>Your personal AI companion, designed to assist with Class 12 experiences and beyond.</p>
+  </header>
+
+  <main>
+    <div id="chatbase-embed"></div>
+  </main>
+
+  <footer>
+    &copy; 2025 KVD GPT. All rights reserved.
+  </footer>
+
+  <script>
+    (function(){
+      if(!window.chatbase || window.chatbase("getState") !== "initialized"){
+        window.chatbase = (...arguments) => {
+          if(!window.chatbase.q){window.chatbase.q = [];}
+          window.chatbase.q.push(arguments);
+        };
+        window.chatbase = new Proxy(window.chatbase, {
+          get(target, prop){
+            if(prop === "q"){ return target.q; }
+            return (...args) => target(prop, ...args);
+          }
+        });
+
+        const onLoad = function(){
+          const script = document.createElement("script");
+          script.src = "https://www.chatbase.co/embed.min.js";
+          script.id = "lczkWPPxgm50VvYMhS9rT";
+          script.domain = "www.chatbase.co";
+          document.getElementById("chatbase-embed").appendChild(script);
+        };
+
+        if(document.readyState === "complete"){
+          onLoad();
+        } else {
+          window.addEventListener("load", onLoad);
+        }
+      }
+    })();
+  </script>
+</body>
+</html>
